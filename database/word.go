@@ -6,7 +6,7 @@ import (
 
 type (
 	WordStorage interface {
-		Create(word, definition string) error
+		Create(word, definition, username string) error
 		GetWords(word string) ([]Word, error)
 	}
 
@@ -21,9 +21,9 @@ type (
 	}
 )
 
-func (db *Words) Create(word, definition string) error {
-	const q = `INSERT INTO coddabolario`
-	_, err := db.Exec(q, word, definition)
+func (db *Words) Create(word, definition, username string) error {
+	const q = `INSERT INTO coddabolario (word, definition, added_by) VALUES (?, ?, ?)`
+	_, err := db.Exec(q, word, definition, username)
 	return err
 }
 

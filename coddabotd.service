@@ -1,0 +1,16 @@
+[Unit]
+Description=Telegram Coddabot Service
+After=network.target
+
+[Service]
+Type=simple
+User=matt
+Group=matt
+ExecStart=/usr/local/bin/coddabot
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

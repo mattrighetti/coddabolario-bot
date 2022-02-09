@@ -22,7 +22,7 @@ func main() {
 		DB: db,
 	}
 
-	b, err := bot.New("bot.yml", boot)
+	b, err := bot.New(os.Getenv("BOT_CONFIG"), boot)
 	if err != nil {
 		log.Fatal(err)
 	}
