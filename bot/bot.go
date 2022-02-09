@@ -38,7 +38,6 @@ func New(path string, boot coddabot.Bootstrap) (*Bot, error) {
 
 func (b *Bot) Start() {
 	b.Use(middleware.Logger())
-	b.Use(b.Middleware("it"))
 
 	b.Handle("/start", b.onStart)
 	b.Handle("/add", b.onAdd, needUsername())

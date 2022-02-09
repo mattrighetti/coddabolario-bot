@@ -2,7 +2,7 @@ package database
 
 import (
 	"github.com/jmoiron/sqlx"
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 type DB struct {
@@ -11,7 +11,7 @@ type DB struct {
 }
 
 func Open(filepath string) (*DB, error) {
-	db, err := sqlx.Open("sqlite3", filepath)
+	db, err := sqlx.Open("sqlite", filepath)
 	if err != nil {
 		return nil, err
 	}

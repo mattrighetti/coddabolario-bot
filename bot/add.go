@@ -1,6 +1,8 @@
 package bot
 
 import (
+	"fmt"
+
 	tele "gopkg.in/telebot.v3"
 )
 
@@ -16,9 +18,5 @@ func (b *Bot) onAdd(c tele.Context) error {
 		b.tmpStore[username] = nil
 	}
 
-	return c.Send(
-		b.Text(c, "add-format"),
-		b.Markup(c, "add-format"),
-		tele.NoPreview,
-	)
+	return c.Send(fmt.Sprintf("Invia la definizione in questo formato:\n\nparola - definizione"))
 }

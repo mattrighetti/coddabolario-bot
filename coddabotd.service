@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-User=matt
-Group=matt
+User=pi
+Group=pi
 ExecStart=/usr/local/bin/coddabot
 Restart=always
 RestartSec=10
